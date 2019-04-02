@@ -1,0 +1,16 @@
+#!/bin/bash
+source "/home/cwal219/training/.common"
+
+intro () {
+STEP="0"
+cd "~/"
+printf "${F_HEADR}  ___  __       _                     _ _                _____        __ _                          \n / _ \\/_ |  _  | |                   | (_)              / ____|      / _| |                         \n| | | || | (_) | |     ___   __ _  __| |_ _ __   __ _  | (___   ___ | |_| |___      ____ _ _ __ ___ \n| | | || |     | |    / _ \\ / _\` |/ _\` | | '_ \ / _\` |  \\___ \ / _ \\|  _| __\\ \\ /\\ / / _\` | '__/ _ \\n| |_| || |  _  | |___| (_) | (_| | (_| | | | | | (_| |  ____) | (_) | | | |_ \\ V  V / (_| | | |  __/\\n \\___/ |_| (_) |______\\___/ \\__,_|\\__,_|_|_| |_|\\__, | |_____/ \\___/|_|  \\__| \\_/\_/ \\__,_|_|  \\___|\n                                                 __/ |                                              \n                                                |___/                                               ${F_DEFAULT}\n"
+printf "Go here:\n"
+printf "${F_LINK}https://support.nesi.org.nz/hc/en-gb/sections/360000040076-Supported-Applications${F_DEFAULT}\n"
+printf "This is all I did\n¯\_(ツ)_/¯\n"
+sleep 1s
+end_of_tut
+}
+
+
+intro

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+TUT_PATH="/home/cwal219/training"
+F_HEADR="\e[5\e[95m"
+F_CODE="\e[47m\e[90m"
+F_DEFAULT="\e[0m\e[49m"
+F_NOTE="\e[90m"
+F_GOOD="\e[92m"
+F_BAD="\e[91m"
+F_LINK="${F_NOTE}[ctrl + click] \e[4m\e[96m"
+
+end_of_tut () {
+
+    exec bash
+    return 0
+
+}
+
+press_2_cont () {
+
+    printf "$*"
+    printf "\n${F_NOTE}[PRESS ANY KEY TO CONTINUE]${F_DEFAULT}\r"
+    read -rsn1
+    return 0
+}

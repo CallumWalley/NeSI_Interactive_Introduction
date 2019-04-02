@@ -1,0 +1,64 @@
+#!/bin/bash
+source "/home/cwal219/training/.common"
+
+intro () {
+STEP="0"
+cd "~/"
+printf "${F_HEADR}  ___   ___        ____            _       ____            _          \n / _ \ / _ \   _  |  _ \          | |     |  _ \          (_)         \n| | | | | | | (_) | |_) | __ _ ___| |__   | |_) | __ _ ___ _  ___ ___ \n| | | | | | |     |  _ < / _| / __| '_ \  |  _ < / _| / __| |/ __/ __|\n| |_| | |_| |  _  | |_) | (_| \__ \ | | | | |_) | (_| \__ \ | (__\__ \\ \n \___/ \___/  (_) |____/ \__,_|___/_| |_| |____/ \__,_|___/_|\___|___/\n${F_DEFAULT}\n"
+press_2_cont "First of all lets find out where we are on the cluster.\n"
+printf "${F_CODE}pwd${F_DEFAULT} stands for 'Print Working Directory'\n"
+printf "Try typing ${F_CODE}pwd${F_DEFAULT} into the command line now.\n"
+}
+
+#ALIASES
+pwd () {	
+		/usr/bin/pwd
+		if [ "${STEP}" == "0" ]; then
+			press_2_cont "\nThis is your home directory, your home directory should be used for non-project related data.\n\n"
+			#sleep 3s
+			press_2_cont "Next we will learn how to copy files from different directories.\n"
+			#sleep 3s
+			printf "Try copying the rest of the tutorial to your home directory with:"
+			printf "\n\n\t${F_CODE}cp -r ${TUT_PATH} ~/${F_DEFAULT}\n\n\t${F_NOTE}'-r' : Allows copying of folders.\n\t'~/' : Refers to your home directory.\n${F_DEFAULT}"
+			STEP="1"
+		fi
+    	return 0
+}
+
+cp () {	
+		/usr/bin/cp ${@:2}
+		if [ -d "${HOME}/training" ] && [ "${STEP}" == "1" ]; then
+		#if [ "$1" == "-r" ] && [ "$2" == "${TUT_PATH}" ] && [ "$3" == "${HOME}/" ]; then
+			press_2_cont "\nWell done! You copied a folder."
+			printf "\nNow change your directory to the folder you just moved using:"
+			printf "\n\n\t${F_CODE}cd ~/training${F_DEFAULT}\n"
+			STEP="2"
+		fi
+		
+    	return 0
+}
+
+cd () {	
+		/usr/bin/cd ${@:2}
+		if [ "${PWD}" == "${HOME}/training" ] && [ "${STEP}" == "2" ]; then
+			press_2_cont "\nTo see what is in the current directory type...."
+			printf "${F_GOOD}Congrats!${F_DEFAULT} Thats the end of this tutorial, to start the next one type:\n"
+			printf "\n\n\t${F_CODE}source ${TUT_PATH}/01-Loading_Software/source_me${F_DEFAULT}\n"
+			end_of_tut
+		fi
+		
+    	return 0
+}
+
+
+# sacct () {
+	
+#     	/opt/slurm/17.11.7/bin/sacct
+# 		sleep 1s
+#     	return 0
+
+# }
+#alias sacct="sacct"
+
+####################
+intro
